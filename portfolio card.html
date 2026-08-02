@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Portfolio Card</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    background:linear-gradient(135deg,#667eea,#764ba2,#6dd5fa);
+    background-size:300% 300%;
+    animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Main Container */
+
+.container{
+    width:900px;
+    border-radius:25px;
+    overflow:hidden;
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+/* Header */
+
+.header{
+    text-align:center;
+    padding:20px;
+    background:linear-gradient(135deg,#7F7FD5,#86A8E7,#91EAE4);
+    color:white;
+}
+
+.header img{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid white;
+    box-shadow:0 0 35px rgba(255,255,255,.6);
+    transition:.5s;
+}
+
+.header img:hover{
+    transform:scale(1.08) rotate(5deg);
+    box-shadow:0 0 50px rgba(255,255,255,.9);
+}
+
+.header h1{
+    margin-top:20px;
+    font-size:42px;
+    font-weight:700;
+    color:black;
+    letter-spacing:1px;
+}
+
+.header h3{
+    margin-top:8px;
+    font-size:20px;
+    font-weight:400;
+    color:black}
+
+/* Content */
+
+.content{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+    padding:35px;
+}
+
+/* Cards */
+
+.card{
+    background:rgba(255,255,255,.9);
+    border-radius:15px;
+    padding:15px;
+    transition:.4s;
+    box-shadow:0 12px 25px rgba(0,0,0,.12);
+    border-left:6px solid #6C63FF;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+    transition:.6s;
+}
+
+.card:hover::before{
+    left:100%;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 35px rgba(0,0,0,.25);
+}
+
+/* Card Heading */
+
+.card h2{
+    color:#5A4FCF;
+    font-size:24px;
+    margin-bottom:18px;
+    border-bottom:2px solid #ececec;
+    padding-bottom:8px;
+}
+
+/* Text */
+
+.card p{
+    font-size:16px;
+    color:#555;
+    line-height:1.8;
+}
+
+.card ul{
+    padding-left:20px;
+}
+
+.card li{
+    margin:10px 0;
+    color:#555;
+    font-size:15px;
+}
+
+/* Skills */
+
+.card:nth-child(2) ul{
+    padding-left:0;
+}
+
+.card:nth-child(2) li{
+    list-style:none;
+    display:inline-block;
+    margin:7px;
+    padding:10px 18px;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    color:white;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:500;
+    transition:.3s;
+    box-shadow:0 5px 12px rgba(102,126,234,.4);
+}
+
+.card:nth-child(2) li:hover{
+    transform:scale(1.1);
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+}
+
+/* Projects */
+
+.card:nth-child(3) li::marker{
+    color:#6C63FF;
+}
+
+/* Achievement */
+
+.card:nth-child(4){
+    background:linear-gradient(135deg,#fff9ec,#ffffff);
+}
+
+/* Contact */
+
+.card:nth-child(5){
+    background:linear-gradient(135deg,#eef8ff,#ffffff);
+}
+
+.card strong{
+    color:#6C63FF;
+}
+
+/* Career */
+
+.card:nth-child(6){
+    background:linear-gradient(135deg,#f8f5ff,#ffffff);
+}
+
+/* Hobbies */
+
+.card:nth-child(7){
+    background:linear-gradient(135deg,#fff5f8,#ffffff);
+}
+
+/* About */
+
+.card:nth-child(8){
+    background:linear-gradient(135deg,#f0fff4,#ffffff);
+}
+
+/* Footer */
+
+.footer{
+    text-align:center;
+    padding:20px;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    color:white;
+    font-size:16px;
+    letter-spacing:1px;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.container{
+    width:100%;
+}
+
+.content{
+    grid-template-columns:1fr;
+}
+
+.header h1{
+    font-size:34px;
+}
+
+.header img{
+    width:150px;
+    height:150px;
+}
+
+.card{
+    padding:22px;
+}
+
+}
+
+@media(max-width:500px){
+
+body{
+    padding:15px;
+}
+
+.header{
+    padding:30px;
+}
+
+.header h1{
+    font-size:28px;
+}
+
+.header h3{
+    font-size:16px;
+}
+
+.card h2{
+    font-size:20px;
+}
+
+.card p,
+.card li{
+    font-size:14px;
+}
+
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<img src="C:\Users\SONALI\Desktop\photo2.jpg" alt="Profile Photo">
+
+<h1>Sonali Devkar</h1>
+
+<h3>Software Development Intern</h3>
+
+</div>
+
+<div class="content">
+
+<div class="card">
+<h2>🎓 College</h2>
+<p>B.Tech Computer Science & Engineering (Third Year)</p>
+<p>College Name:N.K.Orchid College of engg Solapur</p>
+</div>
+
+<div class="card">
+<h2>💻 Skills</h2>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>PHP</li>
+<li>MySQL</li>
+<li>Git & GitHub</li>
+<li>Java</li>
+<li>Data structure</li>
+<li>C</li>
+<li>Python</li>
+<li>Excel sheet</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>📁 Projects</h2>
+<ul>
+<li>Event Management System</li>
+<li>Personal Portfolio Website</li>
+<li>Waste Management System</li>
+<li>Smart parking system</li>
+<li>To-do list app</li>
+<li>Smart kisan app</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🏆 Achievements</h2>
+<ul>
+<li>NPTEL Java Certification (90%)</li>
+<li>Frontend Development Intern - SpireX Foundation</li>
+<li>Completed Front-End Development Projects</li>
+<li>Completed the frontend intership of codealpha</li>
+<li>Completed 1-2 hackathons</li>
+<li>Academic CGPA 8.5</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>📧 Contact</h2>
+
+<p><strong>Email:</strong><br>
+sonalidevkar354@email@gmail.com</p>
+
+<p><strong>Phone:</strong><br>
++91 7620124788</p>
+
+<p><strong>GitHub:</strong><br>
+github.com/sonalidevkar</p>
+
+<p><strong>LinkedIn:</strong><br>
+https://www.linkedin.com/in/sonali-devkar-63719b332</p>
+
+</div>
+
+<div class="card">
+<h2>🎯 Career Objective</h2>
+
+<p>
+    "Passionate Computer Science student and aspiring web developer focused on building innovative and user-friendly web solutions through coding, creativity, and continuous learning. Skilled in developing responsive websites and eager to enhance my technical abilities while contributing to impactful real-world projects."
+</p>
+
+</div>
+
+<div class="card">
+<h2>🎨 Hobbies</h2>
+
+<ul>
+<li>Coding</li>
+<li>Learning New Technologies</li>
+<li>Listening to Music</li>
+<li>Reading Technical Blogs</li>
+<li>Problem Solving</li>
+<li>Travelling</li>
+<li>Painting</li>
+</ul>
+
+</div>
+
+<div class="card">
+<h2>🙋 About Me</h2>
+
+<p>
+Hello! I am <b>Sonali Devkar</b>, a passionate Computer Science Engineering student. I enjoy designing attractive websites and learning new programming technologies. I am currently working as a Front-End Development Intern at SpireX Foundation and continuously improving my web development skills.
+</p>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+© 2026 Sonali Devkar | Personal Portfolio Card
+
+</div>
+
+</div>
+
+</body>
+</html>
